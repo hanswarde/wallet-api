@@ -5,6 +5,7 @@ const walletSchema = new Schema(
     user_id: {
       type: String,
       required: true,
+      unique: true,
     },
     user_name: {
       type: String,
