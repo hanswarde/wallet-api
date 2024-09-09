@@ -2,25 +2,7 @@ import { Request, Response } from "express";
 import { DEBIT_CREDIT } from "../config/constants";
 import PaymentNotification from "../models/PaymentNotification";
 import Wallet from "../models/Wallet";
-
-type Transaction = {
-  id: string;
-  created_at: string;
-  updated_at: string;
-  description: string;
-  type: string;
-  type_method: string;
-  state: string;
-  user_id: string;
-  user_name: string;
-  amount: string;
-  currency: string;
-  debit_credit: string;
-};
-
-type PaymentPayload = {
-  transactions: Transaction[];
-};
+import { PaymentPayload } from "./types";
 
 export const postPayment = async (req: Request, res: Response) => {
   const { transactions } = req.body as PaymentPayload;
